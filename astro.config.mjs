@@ -6,6 +6,6 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://example.com', // TODO: REPLACE WITH YOUR ACTUAL DOMAIN
+	site: 'https://bblog-6kw.pages.dev',
 	integrations: [mdx(), sitemap()],
 });
