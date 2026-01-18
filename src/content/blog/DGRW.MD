@@ -1,7 +1,7 @@
 ---
 title: 'DGRW 배당분석'
 description: ''
-pubDate: 'Jan 17 2026'
+pubDate: 'Jan 18 2026'
 heroImage: '../../assets/2(7).png'
 category: 'etf-dividend'
 ---     

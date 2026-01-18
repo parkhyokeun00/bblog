@@ -1,8 +1,8 @@
 ---
 title: 'VIG 배당분석'
 description: ''
-pubDate: 'Jan 17 2026'
-heroImage: '../../assets/2(5).png'
+pubDate: 'Jan 18 2026'
+heroImage: '../../assets/2 (5).png'
 category: 'etf-dividend'
 ---     
 

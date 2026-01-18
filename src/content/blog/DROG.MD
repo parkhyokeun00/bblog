@@ -1,8 +1,8 @@
 ---
 title: 'DROG 배당분석'
 description: ''
-pubDate: 'Jan 17 2026'
-heroImage: '../../assets/2(6).png'
+pubDate: 'Jan 18 2026'
+heroImage: '../../assets/2 (6).png'
 category: 'etf-dividend'
 ---     
  **DGRO (iShares Core Dividend Growth ETF)**
@@ -104,3 +104,4 @@ DGRO에  결과는 **"가장 넓은 그물로 낚은 진짜 배당"**입니다.
 “개인적인 분석이며 투자 판단의 책임은 본인에게 있음”
 
 “세율은 개인 상황·국가·시점에 따라 달라질 수 있음”  
+ppp

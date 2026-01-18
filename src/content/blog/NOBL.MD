@@ -1,8 +1,8 @@
 ---
 title: 'NOBL 배당분석'
 description: ''
-pubDate: 'Jan 17 2026'
-heroImage: '../../assets/2(3).png'
+pubDate: 'Jan 18 2026'
+heroImage: '../../assets/2 (3).png'
 category: 'etf-dividend'
 ---     
  **NOBL (ProShares S&P 500 Dividend Aristocrats ETF)**

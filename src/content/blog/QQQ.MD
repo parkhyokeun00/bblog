@@ -1,8 +1,8 @@
 ---
 title: 'QQQ 배당분석'
 description: ''
-pubDate: 'Jan 17 2026'
-heroImage: '../../assets/2(2).png'
+pubDate: 'Jan 18 2026'
+heroImage: '../../assets/2 (2).png'
 category: 'etf-dividend'
 --- 
 
