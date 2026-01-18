@@ -2,7 +2,7 @@
 title: 'SCHD 배당분석'
 description: ''
 pubDate: 'Jan 18 2026'
-heroImage: '../../assets/2 (3).png'
+heroImage: '../../assets/2-3.png'
 category: 'etf-dividend'
 --- 
 

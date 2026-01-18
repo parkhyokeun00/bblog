@@ -2,7 +2,7 @@
 title: 'DROG 배당분석'
 description: ''
 pubDate: 'Jan 18 2026'
-heroImage: '../../assets/2 (6).png'
+heroImage: '../../assets/2-6.png'
 category: 'etf-dividend'
 ---     
  **DGRO (iShares Core Dividend Growth ETF)**

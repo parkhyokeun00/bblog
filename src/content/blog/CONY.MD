@@ -2,7 +2,7 @@
 title: 'CONY 배당분석'
 description: ''
 pubDate: 'jan 18 2026'
-heroImage: '../../assets/2 (4).png'
+heroImage: '../../assets/2-4.png'
 category: 'etf-dividend'
 ---
 
@@ -13,7 +13,7 @@ CONY는 코인베이스(Coinbase)의 변동성을 이용해 초고배당을 지�
 
 ---
 
-## 📊 CONY (YieldMax COIN Option Income Strategy ETF) 정밀 판독
+## CONY (YieldMax COIN Option Income Strategy ETF) 정밀 판독
 
 ### 1단계: 원본 데이터 확보 (Document Retrieval)
 

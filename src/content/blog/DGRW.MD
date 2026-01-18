@@ -2,7 +2,7 @@
 title: 'DGRW 배당분석'
 description: ''
 pubDate: 'Jan 18 2026'
-heroImage: '../../assets/2(7).png'
+heroImage: '../../assets/2-7.png'
 category: 'etf-dividend'
 ---     
  **DGRW (WisdomTree U.S. Quality Dividend Growth Fund)**
