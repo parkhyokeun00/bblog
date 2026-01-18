@@ -2,7 +2,7 @@
 title: 'SGOV 배당분석'
 description: ''
 pubDate: 'Jan 18 2026'
-heroImage: '../../assets/1-1.png'
+heroImage: '../../assets/1_1.png'
 category: 'etf-dividend'
 ---
 
