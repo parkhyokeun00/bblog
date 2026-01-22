@@ -1,10 +1,11 @@
 ---
 title: 'NOBL 배당분석'
-description: ''
-pubDate: 'Jan 18 2026'
-heroImage: '../../assets/2-3.png'
+description: 'NOBL ETF 배당 지속 가능성 있는 진짜 배당인지 분석'
+pubDate: '2026-01-21'
+heroImage: '../../assets/1_1.png'
 category: 'etf-dividend'
----     
+---
+
  **NOBL (ProShares S&P 500 Dividend Aristocrats ETF)**
 
 **SCHD**가 재무제표가 튼튼한 '실력파 엘리트'라면, 

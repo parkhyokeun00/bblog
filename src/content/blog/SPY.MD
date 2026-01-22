@@ -1,10 +1,10 @@
 ---
 title: 'SPY 배당분석'
-description: ''
-pubDate: 'Jan 18 2026'
-heroImage: '../../assets/2-1.png'
+description: 'SPY ETF 배당 지속 가능성 있는 진짜 배당인지 분석'
+pubDate: '2026-01-21'
+heroImage: '../../assets/1_1.png'
 category: 'etf-dividend'
---- 
+---
 
  **SPY (SPDR S&P 500 ETF Trust)**
 

@@ -1,10 +1,10 @@
 ---
 title: 'QQQ 배당분석'
-description: ''
-pubDate: 'Jan 18 2026'
-heroImage: '../../assets/2-2.png'
+description: 'QQQ ETF 배당 지속 가능성 있는 진짜 배당인지 분석'
+pubDate: '2026-01-21'
+heroImage: '../../assets/1_4.png'
 category: 'etf-dividend'
---- 
+---
 
  **QQQ (Invesco QQQ Trust)**
  **QQQ**는 나스닥 100을 추종하는 **'성장(Growth)의 화신'**입니다.

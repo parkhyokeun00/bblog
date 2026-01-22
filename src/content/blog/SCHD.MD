@@ -1,10 +1,10 @@
 ---
 title: 'SCHD 배당분석'
-description: ''
-pubDate: 'Jan 18 2026'
-heroImage: '../../assets/2-3.png'
+description: 'SCHD ETF 배당 지속 가능성 있는 진짜 배당인지 분석'
+pubDate: '2026-01-21'
+heroImage: '../../assets/1_5.png'
 category: 'etf-dividend'
---- 
+---
 
  많은 한국 투자자들이 '최애'로 꼽는 **SCHD (Schwab U.S. Dividend Equity ETF)**
 

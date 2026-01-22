@@ -1,8 +1,8 @@
 ---
 title: 'VIG 배당분석'
-description: ''
-pubDate: 'Jan 18 2026'
-heroImage: '../../assets/2-5.png'
+description: 'VIG ETF 배당 지속 가능성 있는 진짜 배당인지 분석'
+pubDate: '2026-01-21'
+heroImage: '../../assets/1_3.png'
 category: 'etf-dividend'
 ---
 
