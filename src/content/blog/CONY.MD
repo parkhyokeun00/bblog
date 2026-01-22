@@ -2,7 +2,7 @@
 title: 'CONY 배당분석'
 description: ''
 pubDate: 'jan 18 2026'
-heroImage: '../../assets/2-4.png'
+heroImage: '../../assets/2_4.png'
 category: 'etf-dividend'
 ---
 
