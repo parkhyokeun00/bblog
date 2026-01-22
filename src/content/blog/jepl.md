@@ -1,7 +1,7 @@
 ---
 title: 'JEPI 배당분석'
 description: ''
-pubDate: 'Jan 17 2026'
+pubDate: 'Jan 15 2026'
 heroImage: '../../assets/1_3.png'
 category: 'etf-dividend'
 ---

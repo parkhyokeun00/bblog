@@ -1,0 +1,20 @@
+---
+import { getCollection } from "astro:content";
+const posts = await getCollection("blog");
+---
+
+<html>
+    <body>
+        <h1>IDs: {posts.length}</h1>
+        <ul>
+            {
+                posts.map((p) => (
+                    <li>
+                        {p.id} - {p.data.category} -{" "}
+                        {p.data.pubDate.toDateString()}
+                    </li>
+                ))
+            }
+        </ul>
+    </body>
+</html>

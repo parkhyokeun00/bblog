@@ -4,7 +4,7 @@ description: ''
 pubDate: 'Jan 18 2026'
 heroImage: '../../assets/2-5.png'
 category: 'etf-dividend'
----     
+---
 
  **VIG (Vanguard Dividend Appreciation ETF)**
 
