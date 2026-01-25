@@ -2,7 +2,7 @@
 title: 'Mondrian Generator - 생성형 추상 아트 웹앱'
 description: '몬드리안 스타일의 추상 미술을 실시간으로 생성하는 인터랙티브 웹 애플리케이션'
 pubDate: '2026-01-25'
-heroImage: '../../assets/mondrian_hero.png'
+heroImage: '../../assets/mondrian.png'
 category: 'creative-tools'
 ---
 

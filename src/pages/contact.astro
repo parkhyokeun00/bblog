@@ -1,0 +1,251 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE } from "../consts";
+---
+
+<!doctype html>
+<html lang="ko">
+    <head>
+        <BaseHead
+            title={`문의하기 - ${SITE_TITLE}`}
+            description="bblog 문의하기"
+        />
+        <style>
+            main {
+                width: 960px;
+                max-width: calc(100% - 2em);
+                margin: auto;
+                padding: 3em 1em;
+            }
+            .prose {
+                max-width: 720px;
+                margin: 0 auto;
+            }
+            h1 {
+                font-size: 2.5em;
+                margin-bottom: 0.5em;
+            }
+            h2 {
+                font-size: 1.8em;
+                margin-top: 2em;
+                margin-bottom: 0.5em;
+                color: rgb(var(--accent));
+            }
+            p,
+            li {
+                line-height: 1.8;
+                color: rgb(var(--gray-dark));
+            }
+            .contact-card {
+                background: linear-gradient(
+                    135deg,
+                    rgba(var(--accent), 0.05) 0%,
+                    rgba(var(--accent), 0.1) 100%
+                );
+                border: 1px solid rgba(var(--accent), 0.2);
+                border-radius: 12px;
+                padding: 2em;
+                margin: 2em 0;
+            }
+            .contact-method {
+                display: flex;
+                align-items: flex-start;
+                gap: 1em;
+                margin: 1.5em 0;
+                padding: 1em;
+                background: white;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            }
+            .contact-icon {
+                font-size: 1.5em;
+                min-width: 40px;
+                text-align: center;
+            }
+            .contact-info h3 {
+                margin: 0 0 0.5em 0;
+                font-size: 1.2em;
+            }
+            .contact-info p {
+                margin: 0;
+                color: rgb(var(--gray));
+            }
+            .contact-link {
+                color: rgb(var(--accent));
+                text-decoration: none;
+                font-weight: 500;
+            }
+            .contact-link:hover {
+                text-decoration: underline;
+            }
+            .note {
+                background: rgba(var(--gray-light), 0.3);
+                border-left: 4px solid rgb(var(--accent));
+                padding: 1em 1.5em;
+                margin: 2em 0;
+                border-radius: 4px;
+            }
+            .note p {
+                margin: 0;
+            }
+            ul {
+                margin-left: 1.5em;
+            }
+        </style>
+    </head>
+    <body>
+        <Header />
+        <main>
+            <div class="prose">
+                <h1>문의하기</h1>
+                <p>
+                    bblog에 관심을 가져주셔서 감사합니다. 궁금하신 사항이나
+                    제안사항이 있으시면 아래 방법을 통해 연락해주세요.
+                </p>
+
+                <div class="contact-card">
+                    <div class="contact-method">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-info">
+                            <h3>이메일</h3>
+                            <p>
+                                <a
+                                    href="mailto:contact@bblog.example.com"
+                                    class="contact-link"
+                                >
+                                    contact@bblog.example.com
+                                </a>
+                            </p>
+                            <p style="margin-top: 0.5em; font-size: 0.9em;">
+                                영업일 기준 1-2일 내에 답변드리겠습니다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-icon">💬</div>
+                        <div class="contact-info">
+                            <h3>GitHub Issues</h3>
+                            <p>
+                                <a
+                                    href="https://github.com/yourusername/bblog/issues"
+                                    class="contact-link"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    GitHub 이슈 페이지
+                                </a>
+                            </p>
+                            <p style="margin-top: 0.5em; font-size: 0.9em;">
+                                버그 리포트나 기능 제안은 GitHub Issues를 통해
+                                제출해주세요.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-icon">🐦</div>
+                        <div class="contact-info">
+                            <h3>소셜 미디어</h3>
+                            <p>
+                                <a
+                                    href="https://twitter.com/bblog"
+                                    class="contact-link"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    @bblog
+                                </a>
+                            </p>
+                            <p style="margin-top: 0.5em; font-size: 0.9em;">
+                                최신 소식과 업데이트를 확인하세요.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>문의 전 확인사항</h2>
+                <p>문의하시기 전에 다음 사항을 먼저 확인해주세요:</p>
+                <ul>
+                    <li>
+                        <strong>개인정보처리방침</strong>: <a href="/privacy"
+                            >개인정보처리방침</a
+                        >에서 데이터 처리 관련 정보를 확인하세요.
+                    </li>
+                    <li>
+                        <strong>이용약관</strong>: <a href="/terms">이용약관</a
+                        >에서 서비스 이용 규정을 확인하세요.
+                    </li>
+                    <li>
+                        <strong>블로그 콘텐츠</strong>: 기존 <a href="/blog"
+                            >블로그 포스트</a
+                        >에서 원하시는 정보를 찾을 수 있습니다.
+                    </li>
+                </ul>
+
+                <h2>문의 유형</h2>
+                <p>다음과 같은 문의를 받고 있습니다:</p>
+                <ul>
+                    <li>
+                        <strong>일반 문의</strong>: 블로그 운영 및 콘텐츠에 관한
+                        질문
+                    </li>
+                    <li>
+                        <strong>기술 지원</strong>: 웹앱 사용 중 발생한 문제나
+                        버그 리포트
+                    </li>
+                    <li>
+                        <strong>콘텐츠 제안</strong>: 새로운 ETF 분석 요청이나
+                        웹앱 아이디어
+                    </li>
+                    <li>
+                        <strong>협업 제안</strong>: 파트너십이나 협업 관련 문의
+                    </li>
+                    <li>
+                        <strong>저작권 문의</strong>: 콘텐츠 사용 허가 및 저작권
+                        관련 문의
+                    </li>
+                    <li>
+                        <strong>광고 문의</strong>: 광고 게재 및 스폰서십 관련
+                        문의
+                    </li>
+                </ul>
+
+                <div class="note">
+                    <p><strong>💡 참고사항</strong></p>
+                    <p style="margin-top: 0.5em;">
+                        본 블로그에서 제공하는 ETF 분석 정보는 개인적인
+                        의견이며, 투자 권유가 아닙니다. 모든 투자 판단의 책임은
+                        투자자 본인에게 있습니다. 투자 관련 문의는 전문 금융
+                        상담사와 상담하시기 바랍니다.
+                    </p>
+                </div>
+
+                <h2>응답 시간</h2>
+                <p>
+                    문의하신 내용은 가능한 빠른 시일 내에 답변드리도록
+                    노력하겠습니다:
+                </p>
+                <ul>
+                    <li><strong>이메일</strong>: 영업일 기준 1-2일</li>
+                    <li><strong>GitHub Issues</strong>: 1-3일</li>
+                    <li>
+                        <strong>소셜 미디어</strong>: 실시간 응답 (업무 시간 내)
+                    </li>
+                </ul>
+
+                <div class="note">
+                    <p><strong>🌟 감사합니다!</strong></p>
+                    <p style="margin-top: 0.5em;">
+                        bblog를 방문해주시고 관심을 가져주셔서 감사합니다.
+                        여러분의 피드백은 더 나은 콘텐츠를 만드는 데 큰 도움이
+                        됩니다.
+                    </p>
+                </div>
+            </div>
+        </main>
+        <Footer />
+    </body>
+</html>

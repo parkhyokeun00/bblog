@@ -1,0 +1,214 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE } from "../consts";
+---
+
+<!doctype html>
+<html lang="ko">
+    <head>
+        <BaseHead
+            title={`개인정보처리방침 - ${SITE_TITLE}`}
+            description="bblog 개인정보처리방침"
+        />
+        <style>
+            main {
+                width: 960px;
+                max-width: calc(100% - 2em);
+                margin: auto;
+                padding: 3em 1em;
+            }
+            .prose {
+                max-width: 720px;
+                margin: 0 auto;
+            }
+            h1 {
+                font-size: 2.5em;
+                margin-bottom: 0.5em;
+            }
+            h2 {
+                font-size: 1.8em;
+                margin-top: 2em;
+                margin-bottom: 0.5em;
+                color: rgb(var(--accent));
+            }
+            h3 {
+                font-size: 1.3em;
+                margin-top: 1.5em;
+                margin-bottom: 0.5em;
+            }
+            p,
+            li {
+                line-height: 1.8;
+                color: rgb(var(--gray-dark));
+            }
+            ul {
+                margin-left: 1.5em;
+            }
+            .last-updated {
+                color: rgb(var(--gray));
+                font-size: 0.9em;
+                margin-top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <Header />
+        <main>
+            <div class="prose">
+                <h1>개인정보처리방침</h1>
+                <p class="last-updated">최종 수정일: 2026년 1월 25일</p>
+
+                <h2>1. 개인정보의 처리 목적</h2>
+                <p>
+                    bblog(이하 "본 사이트")는 다음의 목적을 위하여 개인정보를
+                    처리합니다. 처리하고 있는 개인정보는 다음의 목적 이외의
+                    용도로는 이용되지 않으며, 이용 목적이 변경되는 경우에는
+                    별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.
+                </p>
+
+                <h3>1.1 웹사이트 운영</h3>
+                <ul>
+                    <li>콘텐츠 제공 및 서비스 개선</li>
+                    <li>사용자 경험 향상을 위한 통계 분석</li>
+                    <li>문의 및 고객 지원</li>
+                </ul>
+
+                <h2>2. 개인정보의 처리 및 보유 기간</h2>
+                <p>
+                    본 사이트는 정적 사이트 생성(SSG) 방식으로 운영되며, 별도의
+                    회원가입이나 로그인 기능이 없습니다. 따라서 사용자의
+                    개인정보를 직접 수집하거나 저장하지 않습니다.
+                </p>
+
+                <h3>2.1 쿠키 및 분석 도구</h3>
+                <p>본 사이트는 다음과 같은 도구를 사용할 수 있습니다:</p>
+                <ul>
+                    <li>
+                        <strong>Google Analytics</strong>: 웹사이트 방문 통계 및
+                        사용자 행동 분석
+                    </li>
+                    <li>
+                        <strong>Cloudflare</strong>: 웹사이트 호스팅 및 성능
+                        최적화
+                    </li>
+                </ul>
+                <p>
+                    이러한 서비스는 쿠키를 사용하여 익명화된 데이터를 수집할 수
+                    있으며, 각 서비스의 개인정보처리방침을 따릅니다.
+                </p>
+
+                <h2>3. 개인정보의 제3자 제공</h2>
+                <p>
+                    본 사이트는 원칙적으로 사용자의 개인정보를 외부에 제공하지
+                    않습니다. 다만, 다음의 경우에는 예외로 합니다:
+                </p>
+                <ul>
+                    <li>사용자가 사전에 동의한 경우</li>
+                    <li>
+                        법령의 규정에 의거하거나, 수사 목적으로 법령에 정해진
+                        절차와 방법에 따라 수사기관의 요구가 있는 경우
+                    </li>
+                </ul>
+
+                <h2>4. 개인정보 처리의 위탁</h2>
+                <p>
+                    본 사이트는 다음과 같은 서비스를 이용하여 웹사이트를
+                    운영합니다:
+                </p>
+                <ul>
+                    <li><strong>Cloudflare Pages</strong>: 웹사이트 호스팅</li>
+                    <li>
+                        <strong>Google AdSense</strong>: 광고 서비스 (해당하는
+                        경우)
+                    </li>
+                </ul>
+                <p>
+                    각 서비스 제공자는 자체 개인정보처리방침에 따라 데이터를
+                    처리합니다.
+                </p>
+
+                <h2>5. 정보주체의 권리·의무 및 행사방법</h2>
+                <p>사용자는 언제든지 다음과 같은 권리를 행사할 수 있습니다:</p>
+                <ul>
+                    <li>개인정보 열람 요구</li>
+                    <li>개인정보 정정·삭제 요구</li>
+                    <li>개인정보 처리정지 요구</li>
+                </ul>
+                <p>
+                    권리 행사는 <a href="/contact">문의하기</a> 페이지를 통해 요청하실
+                    수 있습니다.
+                </p>
+
+                <h2>6. 개인정보의 파기</h2>
+                <p>
+                    본 사이트는 사용자의 개인정보를 직접 수집하지 않으므로,
+                    별도의 파기 절차가 필요하지 않습니다. 다만, 문의를 통해
+                    제공된 정보는 처리 목적 달성 후 즉시 파기됩니다.
+                </p>
+
+                <h2>7. 개인정보 보호책임자</h2>
+                <p>
+                    본 사이트는 개인정보 처리에 관한 업무를 총괄해서 책임지고,
+                    개인정보 처리와 관련한 정보주체의 불만처리 및 피해구제 등을
+                    위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.
+                </p>
+                <ul>
+                    <li><strong>개인정보 보호책임자</strong>: bblog 운영자</li>
+                    <li>
+                        <strong>연락처</strong>: <a href="/contact">문의하기</a> 페이지를
+                        통해 연락 가능
+                    </li>
+                </ul>
+
+                <h2>8. 쿠키의 운영 및 거부</h2>
+                <p>
+                    본 사이트는 사용자 경험 향상을 위해 쿠키를 사용할 수
+                    있습니다. 사용자는 웹 브라우저 설정을 통해 쿠키 허용, 차단
+                    또는 삭제를 선택할 수 있습니다.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Chrome</strong>: 설정 &gt; 개인정보 및 보안 &gt;
+                        쿠키 및 기타 사이트 데이터
+                    </li>
+                    <li>
+                        <strong>Firefox</strong>: 설정 &gt; 개인정보 및 보안
+                        &gt; 쿠키 및 사이트 데이터
+                    </li>
+                    <li>
+                        <strong>Safari</strong>: 환경설정 &gt; 개인정보 &gt;
+                        쿠키 및 웹사이트 데이터
+                    </li>
+                </ul>
+                <p>
+                    다만, 쿠키를 차단할 경우 일부 서비스 이용에 제한이 있을 수
+                    있습니다.
+                </p>
+
+                <h2>9. 개인정보처리방침의 변경</h2>
+                <p>
+                    본 개인정보처리방침은 법령, 정책 또는 보안기술의 변경에 따라
+                    내용의 추가, 삭제 및 수정이 있을 시에는 변경사항의 시행 7일
+                    전부터 본 웹사이트를 통하여 고지할 것입니다.
+                </p>
+
+                <h2>10. 기타</h2>
+                <p>
+                    본 사이트는 순수 정보 제공 목적의 블로그이며, 별도의
+                    회원가입이나 개인정보 수집 기능이 없습니다. 웹앱 사용 시에도
+                    모든 데이터는 클라이언트 측에서만 처리되며, 서버로 전송되지
+                    않습니다.
+                </p>
+
+                <p
+                    style="margin-top: 3em; padding-top: 2em; border-top: 1px solid rgb(var(--gray-light));"
+                >
+                    <strong>시행일자</strong>: 2026년 1월 25일
+                </p>
+            </div>
+        </main>
+        <Footer />
+    </body>
+</html>
