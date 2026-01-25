@@ -779,6 +779,13 @@ const App = () => {
         }, 'image/png');
     };
 
+    // Drawer state for mobile
+    const [isDrawerExpanded, setIsDrawerExpanded] = useState(false);
+
+    const toggleDrawer = () => {
+        setIsDrawerExpanded(!isDrawerExpanded);
+    };
+
     return (
         <>
             <div className="simulation-area">
@@ -787,194 +794,207 @@ const App = () => {
                 </div>
             </div>
 
-            <div className="controls-sidebar">
-                <div className="flex items-center justify-between mb-6">
-                    <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+            <div className={`controls-sidebar ${isDrawerExpanded ? 'expanded' : ''}`}>
+                {/* Drawer Handle (mobile only) */}
+                <div className="drawer-handle" onClick={toggleDrawer}></div>
+
+                {/* Drawer Header */}
+                <div className="drawer-header" onClick={toggleDrawer}>
+                    <h1 className="drawer-title">
                         Rect Gen v2
                     </h1>
-                    <div className="flex gap-2">
-                        <button
-                            onClick={downloadScreenshot}
-                            className="p-2 bg-slate-700 hover:bg-slate-600 rounded-full transition-colors"
-                            title="Download 4K (Aspect Ratio)"
-                        >
-                            <lucide-camera size={18} className="text-white" />
-                        </button>
-                        <button
-                            onClick={downloadScreenshotSquare}
-                            className="p-2 bg-slate-700 hover:bg-slate-600 rounded-full transition-colors"
-                            title="Download 4K Square"
-                        >
-                            <lucide-square size={18} className="text-white" />
-                        </button>
-                        <button
-                            onClick={initSimulation}
-                            className="p-2 bg-slate-700 hover:bg-slate-600 rounded-full transition-colors"
-                            title="Reset"
-                        >
-                            <lucide-rotate-ccw size={18} className="text-white" />
-                        </button>
+                    <div className="drawer-toggle">
+                        ▼
                     </div>
                 </div>
 
-                <div className="space-y-6">
-                    {/* Background Color */}
-                    <div className="flex items-center justify-between">
-                        <label className="text-sm font-semibold text-slate-400">Background</label>
-                        <div className="flex items-center gap-2">
-                            <span className="text-xs font-mono text-slate-500">{config.bgColor}</span>
-                            <input
-                                type="color"
-                                value={config.bgColor}
-                                onChange={(e) => updateConfig('bgColor', e.target.value)}
-                            />
+                {/* Controls Content */}
+                <div className="controls-content">
+                    <div className="flex items-center justify-between mb-6">
+                        <div className="flex gap-2 w-full justify-end">
+                            <button
+                                onClick={downloadScreenshot}
+                                className="p-2 bg-slate-700 hover:bg-slate-600 rounded-full transition-colors"
+                                title="Download 4K (Aspect Ratio)"
+                            >
+                                <lucide-camera size={18} className="text-white" />
+                            </button>
+                            <button
+                                onClick={downloadScreenshotSquare}
+                                className="p-2 bg-slate-700 hover:bg-slate-600 rounded-full transition-colors"
+                                title="Download 4K Square"
+                            >
+                                <lucide-square size={18} className="text-white" />
+                            </button>
+                            <button
+                                onClick={initSimulation}
+                                className="p-2 bg-slate-700 hover:bg-slate-600 rounded-full transition-colors"
+                                title="Reset"
+                            >
+                                <lucide-rotate-ccw size={18} className="text-white" />
+                            </button>
                         </div>
                     </div>
 
-                    {/* Color Palette Selection */}
-                    <div>
-                        <div className="flex justify-between items-center mb-2">
-                            <label className="text-sm font-semibold text-slate-400">Palette</label>
-                            <label className="cursor-pointer text-xs flex items-center gap-1 bg-slate-700 hover:bg-slate-600 px-2 py-1 rounded text-blue-300">
-                                <lucide-image size={12} /> Extract form Img
-                                <input type="file" accept="image/*" className="hidden" onChange={handleImageUpload} />
-                            </label>
-                        </div>
-
-                        {/* Theme Buttons */}
-                        <div className="grid grid-cols-6 gap-2 mb-3">
-                            {Object.keys(themes).map(theme => (
-                                <button
-                                    key={theme}
-                                    onClick={() => {
-                                        setConfig(prev => ({ ...prev, colorTheme: theme }));
-                                        setTimeout(initSimulation, 50);
-                                    }}
-                                    className={`w-8 h-8 rounded-full border-2 transition-all ${config.colorTheme === theme ? 'border-white scale-110' : 'border-transparent opacity-50 hover:opacity-100'}`}
-                                    style={{ background: themes[theme][0] }}
-                                    title={theme}
+                    <div className="space-y-6">
+                        {/* Background Color */}
+                        <div className="flex items-center justify-between">
+                            <label className="text-sm font-semibold text-slate-400">Background</label>
+                            <div className="flex items-center gap-2">
+                                <span className="text-xs font-mono text-slate-500">{config.bgColor}</span>
+                                <input
+                                    type="color"
+                                    value={config.bgColor}
+                                    onChange={(e) => updateConfig('bgColor', e.target.value)}
                                 />
-                            ))}
+                            </div>
                         </div>
 
-                        {/* Custom Palette Editor (Visible when Custom is selected) */}
-                        {config.colorTheme === 'custom' && (
-                            <div className="bg-slate-800/50 p-2 rounded-lg flex gap-2 justify-between">
-                                {themes.custom.map((col, idx) => (
-                                    <input
-                                        key={idx}
-                                        type="color"
-                                        value={col}
-                                        onChange={(e) => updateCustomThemeColor(idx, e.target.value)}
-                                        className="w-8 h-8 rounded-full cursor-pointer"
-                                        title={`Change color ${idx + 1}`}
+                        {/* Color Palette Selection */}
+                        <div>
+                            <div className="flex justify-between items-center mb-2">
+                                <label className="text-sm font-semibold text-slate-400">Palette</label>
+                                <label className="cursor-pointer text-xs flex items-center gap-1 bg-slate-700 hover:bg-slate-600 px-2 py-1 rounded text-blue-300">
+                                    <lucide-image size={12} /> Extract form Img
+                                    <input type="file" accept="image/*" className="hidden" onChange={handleImageUpload} />
+                                </label>
+                            </div>
+
+                            {/* Theme Buttons */}
+                            <div className="grid grid-cols-6 gap-2 mb-3">
+                                {Object.keys(themes).map(theme => (
+                                    <button
+                                        key={theme}
+                                        onClick={() => {
+                                            setConfig(prev => ({ ...prev, colorTheme: theme }));
+                                            setTimeout(initSimulation, 50);
+                                        }}
+                                        className={`w-8 h-8 rounded-full border-2 transition-all ${config.colorTheme === theme ? 'border-white scale-110' : 'border-transparent opacity-50 hover:opacity-100'}`}
+                                        style={{ background: themes[theme][0] }}
+                                        title={theme}
                                     />
                                 ))}
                             </div>
-                        )}
-                    </div>
 
-                    {/* Virtual Lines */}
-                    <ControlSlider
-                        label="Virtual Lines"
-                        value={config.lineCount}
-                        min={0} max={20} step={1}
-                        onChange={(v) => updateConfig('lineCount', parseInt(v))}
-                        subtext={config.lineCount === 0 ? "Disabled" : `${config.lineCount} lines (Walls)`}
-                    />
+                            {/* Custom Palette Editor (Visible when Custom is selected) */}
+                            {config.colorTheme === 'custom' && (
+                                <div className="bg-slate-800/50 p-2 rounded-lg flex gap-2 justify-between">
+                                    {themes.custom.map((col, idx) => (
+                                        <input
+                                            key={idx}
+                                            type="color"
+                                            value={col}
+                                            onChange={(e) => updateCustomThemeColor(idx, e.target.value)}
+                                            className="w-8 h-8 rounded-full cursor-pointer"
+                                            title={`Change color ${idx + 1}`}
+                                        />
+                                    ))}
+                                </div>
+                            )}
+                        </div>
 
-                    {/* Standard Controls */}
-                    <ControlSlider
-                        label="Growth Speed"
-                        value={config.speed}
-                        min={1} max={10} step={0.5}
-                        onChange={(v) => updateConfig('speed', parseFloat(v))}
-                    />
+                        {/* Virtual Lines */}
+                        <ControlSlider
+                            label="Virtual Lines"
+                            value={config.lineCount}
+                            min={0} max={20} step={1}
+                            onChange={(v) => updateConfig('lineCount', parseInt(v))}
+                            subtext={config.lineCount === 0 ? "Disabled" : `${config.lineCount} lines (Walls)`}
+                        />
 
-                    <ControlSlider
-                        label="Max Active Items"
-                        value={config.maxActiveRects}
-                        min={1} max={20} step={1}
-                        onChange={(v) => updateConfig('maxActiveRects', parseInt(v))}
-                    />
+                        {/* Standard Controls */}
+                        <ControlSlider
+                            label="Growth Speed"
+                            value={config.speed}
+                            min={1} max={10} step={0.5}
+                            onChange={(v) => updateConfig('speed', parseFloat(v))}
+                        />
 
-                    <ControlSlider
-                        label="Recursion Depth"
-                        value={config.maxDepth}
-                        min={0} max={3} step={1}
-                        onChange={(v) => updateConfig('maxDepth', parseInt(v))}
-                    />
+                        <ControlSlider
+                            label="Max Active Items"
+                            value={config.maxActiveRects}
+                            min={1} max={20} step={1}
+                            onChange={(v) => updateConfig('maxActiveRects', parseInt(v))}
+                        />
 
-                    {/* Border Controls */}
-                    <div className="pt-4 border-t border-slate-700">
-                        <div className="flex items-center justify-between mb-3">
-                            <span className="text-sm font-medium text-slate-300">Border</span>
+                        <ControlSlider
+                            label="Recursion Depth"
+                            value={config.maxDepth}
+                            min={0} max={3} step={1}
+                            onChange={(v) => updateConfig('maxDepth', parseInt(v))}
+                        />
+
+                        {/* Border Controls */}
+                        <div className="pt-4 border-t border-slate-700">
+                            <div className="flex items-center justify-between mb-3">
+                                <span className="text-sm font-medium text-slate-300">Border</span>
+                                <button
+                                    onClick={() => updateConfig('showBorder', !config.showBorder)}
+                                    className={`flex items-center gap-2 px-3 py-1.5 rounded-lg font-medium text-xs transition-all ${config.showBorder ? 'bg-purple-500/20 text-purple-400 hover:bg-purple-500/30' : 'bg-slate-700 text-slate-400 hover:bg-slate-600'}`}
+                                >
+                                    {config.showBorder ? <>✓ ON</> : <>OFF</>}
+                                </button>
+                            </div>
+
+                            {config.showBorder && (
+                                <>
+                                    <ControlSlider
+                                        label="Border Width"
+                                        value={config.borderWidth}
+                                        min={1} max={10} step={0.5}
+                                        onChange={(v) => updateConfig('borderWidth', parseFloat(v))}
+                                    />
+
+                                    <div className="flex items-center justify-between mt-3">
+                                        <label className="text-sm text-slate-300 font-medium">Random Color</label>
+                                        <button
+                                            onClick={() => updateConfig('randomBorderColor', !config.randomBorderColor)}
+                                            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg font-medium text-xs transition-all ${config.randomBorderColor ? 'bg-pink-500/20 text-pink-400 hover:bg-pink-500/30' : 'bg-slate-700 text-slate-400 hover:bg-slate-600'}`}
+                                        >
+                                            {config.randomBorderColor ? <>✓ ON</> : <>OFF</>}
+                                        </button>
+                                    </div>
+
+                                    {!config.randomBorderColor && (
+                                        <div className="flex items-center justify-between mt-3">
+                                            <label className="text-sm text-slate-300 font-medium">Border Color</label>
+                                            <div className="flex items-center gap-2">
+                                                <span className="text-xs font-mono text-slate-500">{config.borderColor}</span>
+                                                <input
+                                                    type="color"
+                                                    value={config.borderColor}
+                                                    onChange={(e) => updateConfig('borderColor', e.target.value)}
+                                                />
+                                            </div>
+                                        </div>
+                                    )}
+                                </>
+                            )}
+                        </div>
+
+                        {/* Rounded Corners Toggle */}
+                        <div className="flex items-center justify-between pt-4 border-t border-slate-700">
+                            <span className="text-sm font-medium text-slate-300">Rounded Corners</span>
                             <button
-                                onClick={() => updateConfig('showBorder', !config.showBorder)}
-                                className={`flex items-center gap-2 px-3 py-1.5 rounded-lg font-medium text-xs transition-all ${config.showBorder ? 'bg-purple-500/20 text-purple-400 hover:bg-purple-500/30' : 'bg-slate-700 text-slate-400 hover:bg-slate-600'}`}
+                                onClick={() => updateConfig('roundedCorners', !config.roundedCorners)}
+                                className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all ${config.roundedCorners ? 'bg-blue-500/20 text-blue-400 hover:bg-blue-500/30' : 'bg-slate-700 text-slate-400 hover:bg-slate-600'}`}
                             >
-                                {config.showBorder ? <>✓ ON</> : <>OFF</>}
+                                {config.roundedCorners ? <>✓ Rounded</> : <>◻ Sharp</>}
                             </button>
                         </div>
 
-                        {config.showBorder && (
-                            <>
-                                <ControlSlider
-                                    label="Border Width"
-                                    value={config.borderWidth}
-                                    min={1} max={10} step={0.5}
-                                    onChange={(v) => updateConfig('borderWidth', parseFloat(v))}
-                                />
-
-                                <div className="flex items-center justify-between mt-3">
-                                    <label className="text-sm text-slate-300 font-medium">Random Color</label>
-                                    <button
-                                        onClick={() => updateConfig('randomBorderColor', !config.randomBorderColor)}
-                                        className={`flex items-center gap-2 px-3 py-1.5 rounded-lg font-medium text-xs transition-all ${config.randomBorderColor ? 'bg-pink-500/20 text-pink-400 hover:bg-pink-500/30' : 'bg-slate-700 text-slate-400 hover:bg-slate-600'}`}
-                                    >
-                                        {config.randomBorderColor ? <>✓ ON</> : <>OFF</>}
-                                    </button>
-                                </div>
-
-                                {!config.randomBorderColor && (
-                                    <div className="flex items-center justify-between mt-3">
-                                        <label className="text-sm text-slate-300 font-medium">Border Color</label>
-                                        <div className="flex items-center gap-2">
-                                            <span className="text-xs font-mono text-slate-500">{config.borderColor}</span>
-                                            <input
-                                                type="color"
-                                                value={config.borderColor}
-                                                onChange={(e) => updateConfig('borderColor', e.target.value)}
-                                            />
-                                        </div>
-                                    </div>
-                                )}
-                            </>
-                        )}
+                        <div className="flex items-center justify-between pt-4 border-t border-slate-700">
+                            <span className="text-sm font-medium text-slate-300">Status</span>
+                            <button
+                                onClick={() => updateConfig('isRunning', !config.isRunning)}
+                                className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all ${config.isRunning ? 'bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30' : 'bg-rose-500/20 text-rose-400 hover:bg-rose-500/30'}`}
+                            >
+                                {config.isRunning ? <><lucide-pause size={14} /> Run</> : <><lucide-play size={14} /> Pause</>}
+                            </button>
+                        </div>
                     </div>
-
-                    {/* Rounded Corners Toggle */}
-                    <div className="flex items-center justify-between pt-4 border-t border-slate-700">
-                        <span className="text-sm font-medium text-slate-300">Rounded Corners</span>
-                        <button
-                            onClick={() => updateConfig('roundedCorners', !config.roundedCorners)}
-                            className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all ${config.roundedCorners ? 'bg-blue-500/20 text-blue-400 hover:bg-blue-500/30' : 'bg-slate-700 text-slate-400 hover:bg-slate-600'}`}
-                        >
-                            {config.roundedCorners ? <>✓ Rounded</> : <>◻ Sharp</>}
-                        </button>
-                    </div>
-
-                    <div className="flex items-center justify-between pt-4 border-t border-slate-700">
-                        <span className="text-sm font-medium text-slate-300">Status</span>
-                        <button
-                            onClick={() => updateConfig('isRunning', !config.isRunning)}
-                            className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all ${config.isRunning ? 'bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30' : 'bg-rose-500/20 text-rose-400 hover:bg-rose-500/30'}`}
-                        >
-                            {config.isRunning ? <><lucide-pause size={14} /> Run</> : <><lucide-play size={14} /> Pause</>}
-                        </button>
-                    </div>
-                </div>
-            </div>
+                </div> {/* End controls-content */}
+            </div> {/* End controls-sidebar */}
         </>
     );
 };
