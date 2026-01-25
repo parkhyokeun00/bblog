@@ -20,7 +20,7 @@ category: 'etf-dividend'
 ### 1단계: 원본 데이터 확보 (Document Retrieval)
 
 * **운용사:** Charles Schwab (찰스 슈왑)
-* **추종 지수:** Dow Jones U.S. Dividend 100 Index
+* **추종 지수:** Dow Jones U.S. Dividend 100 Index@bito.md#L14 @terminal:node 
 * **선별 기준(Screening):** 회계사로서 이 펀드의 선별 기준에 감탄하게 됩니다. 단순히 배당을 많이 주는 기업을 뽑는 게 아니라, **'재무건전성'**을 봅니다.
 1. **현금흐름(Free Cash Flow)이 빵빵한가?**
 2. **부채(Debt)가 적절한가?**
