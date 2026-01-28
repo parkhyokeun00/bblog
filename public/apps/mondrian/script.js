@@ -288,7 +288,7 @@ class Rect {
 const App = () => {
     const [config, setConfig] = useState({
         speed: 4.0,
-        maxDepth: 2,
+        maxDepth: 0,
         subdivisionChance: 0.1,
         maxActiveRects: 5,
         colorTheme: 'bauhaus',
@@ -837,7 +837,7 @@ const App = () => {
                 {/* Drawer Header */}
                 <div className="drawer-header" onClick={toggleDrawer}>
                     <h1 className="drawer-title">
-                        Rect Gen v2
+                        Rect Gen v1
                     </h1>
                     <div className="drawer-toggle">
                         ▼
