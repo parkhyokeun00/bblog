@@ -440,15 +440,51 @@ const App = () => {
 
                 // 빈도순 정렬
                 const sortedColors = Object.keys(colorCounts).sort((a, b) => colorCounts[b] - colorCounts[a]);
-                const top5Hex = sortedColors.slice(0, 5);
 
-                // 5개 미만일 경우 보충
-                while (top5Hex.length < 5) {
-                    top5Hex.push('#ffffff');
+                // 거리 기반 색상 필터링 (중복/유사 색상 제거)
+                const distinctiveColors = [];
+                const MIN_DISTANCE = 50; // 색상 거리 임계값 (조절 가능)
+
+                const getColorDistance = (hex1, hex2) => {
+                    const r1 = parseInt(hex1.slice(1, 3), 16);
+                    const g1 = parseInt(hex1.slice(3, 5), 16);
+                    const b1 = parseInt(hex1.slice(5, 7), 16);
+                    const r2 = parseInt(hex2.slice(1, 3), 16);
+                    const g2 = parseInt(hex2.slice(3, 5), 16);
+                    const b2 = parseInt(hex2.slice(5, 7), 16);
+                    return Math.sqrt(Math.pow(r1 - r2, 2) + Math.pow(g1 - g2, 2) + Math.pow(b1 - b2, 2));
+                };
+
+                for (const hex of sortedColors) {
+                    if (distinctiveColors.length >= 5) break;
+
+                    let isDistinct = true;
+                    for (const existing of distinctiveColors) {
+                        if (getColorDistance(hex, existing) < MIN_DISTANCE) {
+                            isDistinct = false;
+                            break;
+                        }
+                    }
+
+                    if (isDistinct) {
+                        distinctiveColors.push(hex);
+                    }
+                }
+
+                // 5개 미만일 경우 보충 (기본 색상 사용하되 중복 피함)
+                const defaults = ['#ffffff', '#000000', '#ff0000', '#0000ff', '#ffff00'];
+                let defaultIndex = 0;
+                while (distinctiveColors.length < 5) {
+                    const defColor = defaults[defaultIndex % defaults.length];
+                    // 중복 체크 후 추가
+                    if (!distinctiveColors.includes(defColor)) {
+                        distinctiveColors.push(defColor);
+                    }
+                    defaultIndex++;
                 }
 
                 // Hex를 OKLCH로 변환
-                const top5Oklch = top5Hex.map(hex => hexToOklch(hex));
+                const top5Oklch = distinctiveColors.map(hex => hexToOklch(hex));
 
                 setThemes(prev => ({ ...prev, custom: top5Oklch }));
                 setConfig(prev => ({ ...prev, colorTheme: 'custom' }));
