@@ -810,30 +810,20 @@ const App = () => {
 
                 {/* Controls Content */}
                 <div className="controls-content">
-                    <div className="flex items-center justify-between mb-6">
-                        <div className="flex gap-2 w-full justify-end">
-                            <button
-                                onClick={downloadScreenshot}
-                                className="p-2 bg-slate-700 hover:bg-slate-600 rounded-full transition-colors"
-                                title="Download 4K (Aspect Ratio)"
-                            >
-                                <lucide-camera size={18} className="text-white" />
-                            </button>
-                            <button
-                                onClick={downloadScreenshotSquare}
-                                className="p-2 bg-slate-700 hover:bg-slate-600 rounded-full transition-colors"
-                                title="Download 4K Square"
-                            >
-                                <lucide-square size={18} className="text-white" />
-                            </button>
-                            <button
-                                onClick={initSimulation}
-                                className="p-2 bg-slate-700 hover:bg-slate-600 rounded-full transition-colors"
-                                title="Reset"
-                            >
-                                <lucide-rotate-ccw size={18} className="text-white" />
-                            </button>
-                        </div>
+                    <div className="grid grid-cols-2 gap-3 mb-6">
+                        <button
+                            onClick={() => updateConfig('isRunning', !config.isRunning)}
+                            className={`flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium text-sm transition-all ${config.isRunning ? 'bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30' : 'bg-rose-500/20 text-rose-400 hover:bg-rose-500/30'}`}
+                        >
+                            {config.isRunning ? <><lucide-pause size={18} /> Run</> : <><lucide-play size={18} /> Pause</>}
+                        </button>
+
+                        <button
+                            onClick={initSimulation}
+                            className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium text-sm transition-all bg-slate-700 hover:bg-slate-600 text-white hover:bg-red-500/20 hover:text-red-400"
+                        >
+                            <lucide-rotate-ccw size={18} /> Reset App
+                        </button>
                     </div>
 
                     <div className="space-y-6">
@@ -983,14 +973,25 @@ const App = () => {
                             </button>
                         </div>
 
-                        <div className="flex items-center justify-between pt-4 border-t border-slate-700">
-                            <span className="text-sm font-medium text-slate-300">Status</span>
-                            <button
-                                onClick={() => updateConfig('isRunning', !config.isRunning)}
-                                className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all ${config.isRunning ? 'bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30' : 'bg-rose-500/20 text-rose-400 hover:bg-rose-500/30'}`}
-                            >
-                                {config.isRunning ? <><lucide-pause size={14} /> Run</> : <><lucide-play size={14} /> Pause</>}
-                            </button>
+
+
+                        {/* 4K Download & Reset Buttons */}
+                        <div className="pt-4 border-t border-slate-700 space-y-3">
+                            <div className="grid grid-cols-2 gap-3">
+                                <button
+                                    onClick={downloadScreenshot}
+                                    className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium text-sm transition-all bg-slate-700 hover:bg-slate-600 text-white"
+                                >
+                                    <lucide-camera size={18} /> 4K Full download
+                                </button>
+                                <button
+                                    onClick={downloadScreenshotSquare}
+                                    className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium text-sm transition-all bg-slate-700 hover:bg-slate-600 text-white"
+                                >
+                                    <lucide-square size={18} /> 4K Square download
+                                </button>
+                            </div>
+
                         </div>
                     </div>
                 </div> {/* End controls-content */}
